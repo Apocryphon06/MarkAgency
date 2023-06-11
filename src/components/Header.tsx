@@ -1,9 +1,10 @@
-import React from "react";
+import gsap from "gsap";
+import { ScrollToPlugin, ScrollTrigger } from "gsap/all";
+import React, { useEffect } from "react";
 
 const Brand = () => {
-  
   return (
-    <p className="text-2xl cursor-pointer font-medium ">
+    <p className="text-2xl cursor-pointer font-medium menuItems">
       Logo <span className="text-amber-400 font-medium">Here</span>
     </p>
   );
@@ -13,7 +14,7 @@ const MenuItems = () => {
   return (
     <div className="lg:flex hidden items-center gap-10 justify-between">
       {["Home", "About Us", "Services", "Projects", "Blogs"].map((item) => (
-        <p className="text-base capitalize cursor-pointer">{item}</p>
+        <p className="text-base capitalize cursor-pointer menuItems">{item}</p>
       ))}
     </div>
   );
@@ -21,7 +22,7 @@ const MenuItems = () => {
 
 const MenuIcon = () => {
   return (
-    <div className="cursor-pointer w-6 h-6 lg:hidden block">
+    <div className="cursor-pointer w-6 h-6 lg:hidden block menuItems">
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
         <g
@@ -44,8 +45,26 @@ const MenuIcon = () => {
 };
 
 const Header = () => {
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+    gsap.set(".menuItems", {
+      x: -100,
+      opacity: 0,
+    });
+
+    gsap.to(".menuItems", {
+      x: 0,
+      opacity: 1,
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: ".header",
+        toggleActions: "resume pause restart none",
+      },
+    });
+  }, []);
   return (
-    <div className="flex items-center justify-between lg:p-10 p-5 lg:px-20">
+    <div className="flex items-center justify-between lg:p-10 p-5 lg:px-20 header">
       <Brand />
       <MenuItems />
       <MenuIcon />
