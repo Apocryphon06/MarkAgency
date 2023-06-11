@@ -20,10 +20,9 @@ import gsap from "gsap";
 import { ScrollToPlugin, ScrollTrigger } from "gsap/all";
 
 const Home = () => {
-  const width = window.innerWidth;
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-  }, [width]);
+  }, []);
 
   return (
     <React.Fragment>
@@ -53,15 +52,9 @@ const Home = () => {
         {/* section1 */}
         <div className="lg:mt-20 mt-10 ">
           <div className="flex lg:flex-row flex-col items-center justify-center lg:gap-10 gap-5">
-            <img
-              src={explain}
-              alt=""
-              className="lg:w-[500px] lg:h-[500px] "
-            />
+            <img src={explain} alt="" className="lg:w-[500px] lg:h-[500px] " />
             <div className="flex flex-col gap-2 lg:w-[500px]">
-              <p className="lg:text-4xl text-3xl font-medium">
-                What we are{" "}
-              </p>
+              <p className="lg:text-4xl text-3xl font-medium">What we are </p>
               <p className="lg:text-4xl text-3xl font-medium">
                 building gradually?
               </p>
