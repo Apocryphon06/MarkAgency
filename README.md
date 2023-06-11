@@ -1,1 +1,1 @@
-Landing Page template for Digital Marketting Agency
+Landing Page template for Digital Marketing Agency
