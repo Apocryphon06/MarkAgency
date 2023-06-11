@@ -1,9 +1,10 @@
 import React from "react";
 
 const Brand = () => {
+  
   return (
-    <p className="text-xl cursor-pointer">
-      Logo <span className="text-amber-400 ">Here</span>
+    <p className="text-2xl cursor-pointer font-medium ">
+      Logo <span className="text-amber-400 font-medium">Here</span>
     </p>
   );
 };
